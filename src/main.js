@@ -11,6 +11,9 @@ import NavigationEvents from './pages/NavigationEvents/index.vue'
 import BrowserSupport from './pages/BrowserSupport/index.vue'
 import PolyfillAnalysis from './pages/PolyfillAnalysis/index.vue'
 
+// 从环境变量获取 base 路径
+const basePath = import.meta.env.VITE_BASE_PATH || '/'
+
 // 路由配置
 const routes = [
   { path: '/', component: Home, meta: { title: 'Navigation API Demo - 首页' } },
@@ -23,7 +26,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(basePath),
   routes
 })
 

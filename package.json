@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-404.js",
+    "build:prod": "vite build --mode production && VITE_BASE_PATH=/navigation-api-demo/ node scripts/generate-404.js",
     "preview": "vite preview",
     "serve": "vite preview --port 3000",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build:prod && gh-pages -d dist"
   },
   "dependencies": {
     "vue": "^3.4.0",

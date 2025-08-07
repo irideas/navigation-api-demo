@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation API Demo</title>
+  <script>
+    // GitHub Pages SPA 路由解决方案
+    const path = window.location.pathname.slice(1);
+    if (path && path !== 'navigation-api-demo/') {
+      window.history.replaceState(null, null, '/navigation-api-demo/#/' + path);
+    }
+    window.location.replace('/navigation-api-demo/');
+  </script>
+</head>
+<body>
+  <div>正在重定向...</div>
+</body>
+</html>
