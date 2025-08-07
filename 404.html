@@ -6,11 +6,17 @@
   <title>Navigation API Demo</title>
   <script>
     // GitHub Pages SPA 路由解决方案
-    const path = window.location.pathname.slice(1);
-    if (path && path !== 'navigation-api-demo/') {
-      window.history.replaceState(null, null, '/navigation-api-demo/#/' + path);
+    const path = window.location.pathname;
+    const basePath = '/navigation-api-demo/';
+    
+    // 如果路径不是以 basePath 开头，重定向到正确的路径
+    if (basePath !== '/' && path !== basePath && !path.startsWith(basePath)) {
+      const newPath = basePath + (path.startsWith('/') ? path.slice(1) : path);
+      window.location.replace(newPath);
+    } else if (basePath !== '/' && path !== basePath) {
+      // 如果是子路径，重定向到首页让 Vue Router 处理
+      window.location.replace(basePath);
     }
-    window.location.replace('/navigation-api-demo/');
   </script>
 </head>
 <body>
