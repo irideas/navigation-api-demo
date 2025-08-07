@@ -4,6 +4,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [vue()],
+  base: '/navigation-api-demo/', // GitHub Pages 的仓库路径
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src')
